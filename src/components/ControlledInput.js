@@ -16,9 +16,14 @@ class ControlledInput extends React.Component {
 		});
 	};
 
+	handleSubmit = (event) => {
+		event.preventDefault();
+		console.log(this.state);
+	};
+
 	render() {
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit}>
 				<input type="text"
 							 name="firstName"
 							 value={this.state.firstName}
@@ -27,6 +32,8 @@ class ControlledInput extends React.Component {
 							 name="lastName"
 							 value={this.state.lastName}
 							 onChange={this.handleChange} />
+				<input type="submit"
+							 value="Submit" />
 			</form>
 		);
 	};

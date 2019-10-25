@@ -26,7 +26,7 @@ controlled form is **a form that derives its input values from state**. Consider
 following:
 
 ```js
-import React from 'react';
+import React from "react"
 
 class Form extends React.Component {
   state = {
@@ -44,7 +44,7 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Form
 ```
 
 With the setup above, the two text `input`s will display the corresponding state
@@ -114,7 +114,7 @@ identical, with one difference &mdash; `handleFirstNameChange()` changes the
 The full component would look like the following:
 
 ```js
-import React from 'react';
+import React from "react"
 
 class Form extends React.Component {
   state = {
@@ -137,14 +137,22 @@ class Form extends React.Component {
   render() {
     return (
       <form>
-        <input type="text" onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName} />
-        <input type="text" onChange={event => this.handleLastNameChange(event)} value={this.state.lastName} />
+        <input
+          type="text"
+          onChange={event => this.handleFirstNameChange(event)}
+          value={this.state.firstName}
+        />
+        <input
+          type="text"
+          onChange={event => this.handleLastNameChange(event)}
+          value={this.state.lastName}
+        />
       </form>
     )
   }
 }
 
-export default Form;
+export default Form
 ```
 
 In the `handleFirstNameChange()` and `handleLastNameChange()` methods, we're updating state based on `event.target.value`. This, in
@@ -222,7 +230,7 @@ We don't have a server to send our data to, but to demonstrate submission, we co
 modify our `Form` component to list out submissions, storing them in state:
 
 ```js
-import React from 'react';
+import React from "react"
 
 class Form extends React.Component {
   state = {
@@ -245,14 +253,21 @@ class Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let formData = { firstName: this.state.firstName, lastName: this.state.lastName }
+    let formData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName
+    }
     let dataArray = this.state.submittedData.concat(formData)
-    this.setState({submittedData: dataArray})
+    this.setState({ submittedData: dataArray })
   }
 
   listOfSubmissions = () => {
     return this.state.submittedData.map(data => {
-      return <div><span>{data.firstName}</span> <span>{data.lastName}</span></div>
+      return (
+        <div>
+          <span>{data.firstName}</span> <span>{data.lastName}</span>
+        </div>
+      )
     })
   }
 
@@ -270,7 +285,7 @@ class Form extends React.Component {
             onChange={event => this.handleLastNameChange(event)}
             value={this.state.lastName}
           />
-          <input type="submit"/>
+          <input type="submit" />
         </form>
         {this.listOfSubmissions()}
       </div>
@@ -278,7 +293,7 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Form
 ```
 
 The above component will render previous form submissionso on the page! We have
@@ -334,9 +349,7 @@ rendering the same thing). Uncontrolled forms still work just fine in React.
 To submit an uncontrolled form, we can use the `onSubmit` handler just as before:
 
 ```js
-<form onSubmit={ event => this.handleSubmit(event) }>
-  ...
-</form>
+<form onSubmit={event => this.handleSubmit(event)}>...</form>
 ```
 
 All the form data in an uncontrolled form is accessible within the `event`, but
@@ -387,15 +400,15 @@ this, we'll need to create a new component. To keep it simple, we'll call it
 just handles the display of JSX:
 
 ```js
-import React from 'react';
-import Form from './Form'
+import React from "react"
+import Form from "./Form"
 
 class ParentComponent extends React.Component {
   state = {
     firstName: "",
-    lastName: "",
+    lastName: ""
   }
-  
+
   handleFirstNameChange = event => {
     this.setState({
       firstName: event.target.value
@@ -419,13 +432,13 @@ class ParentComponent extends React.Component {
   }
 }
 
-export default ParentComponent;
+export default ParentComponent
 ```
 
 Then `Form` can become:
 
 ```js
-import React from 'react';
+import React from "react"
 
 class Form extends React.Component {
   render() {
@@ -448,7 +461,7 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Form
 ```
 
 **Aside**: Submission functionality is omitted here for simplicity. Also, If
@@ -465,7 +478,7 @@ sibling of `Form`, that live displays our form data.
 
 ```js
 // src/components/DisplayData
-import React from 'react';
+import React from "react"
 
 class DisplayData extends React.Component {
   render() {
@@ -604,16 +617,16 @@ Here is the full, final code using this new function:
 
 ```js
 // src/components/ParentComponent
-import React from 'react';
-import Form from './Form'
-import DisplayData from './DisplayData'
+import React from "react"
+import Form from "./Form"
+import DisplayData from "./DisplayData"
 
 class ParentComponent extends React.Component {
   state = {
     firstName: "",
-    lastName: "",
+    lastName: ""
   }
-  
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -623,22 +636,19 @@ class ParentComponent extends React.Component {
   render() {
     return (
       <div>
-        <Form
-          formData={this.state}
-          handleChange={this.handleChange}
-        />
+        <Form formData={this.state} handleChange={this.handleChange} />
         <DisplayData formData={this.state} />
       </div>
     )
   }
 }
 
-export default ParentComponent;
+export default ParentComponent
 ```
 
 ```js
 // src/components/Form
-import React from 'react';
+import React from "react"
 
 class Form extends React.Component {
   render() {
@@ -655,19 +665,20 @@ class Form extends React.Component {
             type="text"
             name="lastName"
             onChange={event => this.props.handleChange(event)}
-            value={this.props.formData.lastName} />
+            value={this.props.formData.lastName}
+          />
         </form>
       </div>
     )
   }
 }
 
-export default Form;
+export default Form
 ```
 
 ```js
 // src/components/DisplayData.js
-import React from 'react';
+import React from "react"
 
 class DisplayData extends React.Component {
   render() {
@@ -685,16 +696,16 @@ export default DisplayData
 
 ```js
 // src/index.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ParentComponent from './components/ParentComponent';
+import React from "react"
+import ReactDOM from "react-dom"
+import ParentComponent from "./components/ParentComponent"
 
 ReactDOM.render(
   <div>
-    <ParentComponent/>
+    <ParentComponent />
   </div>,
-  document.getElementById('root')
-);
+  document.getElementById("root")
+)
 ```
 
 ## Resources

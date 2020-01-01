@@ -281,7 +281,7 @@ class Form extends React.Component {
 export default Form;
 ```
 
-The above component will render previous form submissionso on the page! We have
+The above component will render previous form submissions on the page! We have
 a fully functioning controlled form.
 
 ## More on Forms
@@ -377,7 +377,7 @@ sends all _20_ state values wherever we need them to go upon submission.
 ## Why Use Controlled Forms When We Do Not Have To
 
 Controlled forms can very useful for specific purposes - since we can set our
-state _elsewhere_ using this setup, its easy to populate forms from existing 
+state _elsewhere_ using this setup, its easy to populate forms from existing
 available data.
 
 When we have a controlled form, the state does not need to be stored in the same
@@ -396,7 +396,7 @@ class ParentComponent extends React.Component {
     firstName: "",
     lastName: "",
   }
-  
+
   handleFirstNameChange = event => {
     this.setState({
       firstName: event.target.value
@@ -453,7 +453,7 @@ class Form extends React.Component {
 export default Form;
 ```
 
-Previously, our application was rendering `Form` directly inside `src/index.js`. Now, 
+Previously, our application was rendering `Form` directly inside `src/index.js`. Now,
 however, we've added a component that _renders_ `Form` as a child. Because of this
 change, you'll need to update `src/index.js` so that it renders `ParentComponent` instead of
 `Form`.
@@ -620,7 +620,7 @@ class ParentComponent extends React.Component {
     firstName: "",
     lastName: "",
   }
-  
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value

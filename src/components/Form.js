@@ -7,7 +7,13 @@ class Form extends React.Component {
         <form>
           <input
             type="text"
-            onChange={event => this.props.handleFirstNameChange(event)}
+            // onChange={event => this.props.handleFirstNameChange(event)}
+            onChange={
+              function(event){
+               return this.props.handleFirstNameChange(event);
+              }
+          }
+            
             value={this.props.formData.firstName}
           />
 
@@ -22,6 +28,6 @@ class Form extends React.Component {
   }
 }
 
-
+b
 
 export default Form;

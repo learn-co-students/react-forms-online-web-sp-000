@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 class Form extends React.Component {
   state = {
-    firstName: "John",
-    lastName: "Henry"
+    firstName: 'John',
+    lastName: 'Henry'
   }
 
   handleFirstNameChange = event => {
@@ -18,14 +18,32 @@ class Form extends React.Component {
     })
   }
 
-  render() {
+  handleSubmit = event => {
+    event.preventDefault()
+    let formData = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName
+    }
+    this.sendFormDataSomewhere(formData)
+  }
+  render () {
     return (
-      <form>
-        <input type="text" name="firstName" onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName} />
-        <input type="text" name="lastName" onChange={event => this.handleLastNameChange(event)} value={this.state.lastName} />
+      <form onSubmit={event => this.handleSubmit(event)}>
+        <input
+          type='text'
+          name='firstName'
+          onChange={event => this.handleFirstNameChange(event)}
+          value={this.state.firstName}
+        />
+        <input
+          type='text'
+          name='lastName'
+          onChange={event => this.handleLastNameChange(event)}
+          value={this.state.lastName}
+        />
       </form>
     )
   }
 }
 
-export default Form;
+export default Form

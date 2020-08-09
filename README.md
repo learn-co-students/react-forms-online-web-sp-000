@@ -10,7 +10,7 @@ In this lesson, we'll discuss how to set up a controlled form in React.
 2. Check whether a component is controlled or uncontrolled
 3. Describe strategies for using controlled components
 4. Use controlled inputs to validate values
-5. Distinguish between `value` and `defaultValue` in a React controlled component
+5. Distinguish between `value` and $s`defaultValue` in a React controlled component
 
 ## Code Along
 

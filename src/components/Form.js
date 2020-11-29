@@ -1,5 +1,5 @@
 import React from 'react';
-
+// use controlled
 class Form extends React.Component {
   state = {
     firstName: "John",
@@ -28,4 +28,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Form

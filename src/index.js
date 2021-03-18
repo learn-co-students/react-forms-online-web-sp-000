@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from './components/Form'
+import User from './components/User'
 
 ReactDOM.render(
   <div>
-    <Form />
+    <User />
   </div>,
   document.getElementById('root')
 );

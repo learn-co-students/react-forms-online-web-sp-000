@@ -11,8 +11,7 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^4.0.3",
-    "webpack-dev-server": "^3.11.2"
+    "react-scripts": "^4.0.3"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -27,5 +26,17 @@
     "build": "react-scripts build",
     "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -35,7 +35,6 @@ handleChange = (event) => {
             //  handleLastNameChange={this.handleLastNameChange}
             handleChange={this.handleChange}
            />
-
            <DisplayData formData={this.state} />
            </div>
        )

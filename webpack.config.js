@@ -11,7 +11,9 @@ module.exports = {
     inline: true,
     port: 7700,
     historyApiFallback: true,
+    disableHostCheck: true,
   },
+  target: 'web',
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
